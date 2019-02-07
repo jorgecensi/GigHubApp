@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -13,7 +14,11 @@ namespace GigHubApp.Services
         {
         }
 
-        public async Task<bool> RegisterAsync(string name, string email, string password, string confirmPassword)
+        public async Task<bool> RegisterAsync(
+            string name, 
+            string email, 
+            string password, 
+            string confirmPassword)
         {
             var client = new HttpClient();
 
@@ -34,5 +39,25 @@ namespace GigHubApp.Services
 
             return response.IsSuccessStatusCode;
         }
+
+        public async Task LoginAsync(string userName, string password)
+        {
+            var keyVakues = new List<KeyValuePair<string, string>> 
+            { 
+                new KeyValuePair<string, string>("username", userName),
+                new KeyValuePair<string, string>("password", password),
+                new KeyValuePair<string, string>("grant_type","password")
+            };
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://gighub.azurewebsites.net/Token")
+            {
+                Content = new FormUrlEncodedContent(keyVakues)
+            };
+
+            var client = new HttpClient();
+            var response = await client.SendAsync(request);
+            var content = await response.Content.ReadAsStringAsync();
+        }
+
     }
 }
