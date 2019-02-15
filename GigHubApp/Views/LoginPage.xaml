@@ -14,10 +14,12 @@
                  Padding="16,40,16,40" 
                  Spacing="30">
         <Entry Text="{Binding Username}"
-               Placeholder="Username"/>
+               Placeholder="Username"
+               FontSize="30"/>
         <Entry Text="{Binding Password}"
                Placeholder="Password"
-            IsPassword="true"/>
+               IsPassword="true"
+               FontSize="30"/>
         <Button Command="{Binding LoginCommand}"
                 Margin="0,10,0,0"
                 Text="Login"
