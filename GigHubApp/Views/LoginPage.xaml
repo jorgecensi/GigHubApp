@@ -2,17 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewModels="clr-namespace:GigHubApp.ViewModels;assembly=GigHubApp"
-             x:Class="GigHubApp.Views.LoginPage">
+             x:Class="GigHubApp.Views.LoginPage"
+             Title="Login">
     <ContentPage.BindingContext>
         <viewModels:LoginViewModel/>
     </ContentPage.BindingContext>
     
     
-    <StackLayout Orientation="Vertical">
-        <Entry Text="{Binding Username}"/>
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Padding="16,40,16,40" 
+                 Spacing="30">
+        <Entry Text="{Binding Username}"
+               Placeholder="Username"/>
         <Entry Text="{Binding Password}"
+               Placeholder="Password"
             IsPassword="true"/>
         <Button Command="{Binding LoginCommand}"
-                Text="Login"/>
+                Margin="0,10,0,0"
+                Text="Login"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White"
+                />
     </StackLayout>
 </ContentPage>

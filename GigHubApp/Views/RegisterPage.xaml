@@ -2,24 +2,34 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GigHubApp.Views.RegisterPage"
-             xmlns:viewModels="clr-namespace:GigHubApp.ViewModels;assembly=GigHubApp">
+             xmlns:viewModels="clr-namespace:GigHubApp.ViewModels;assembly=GigHubApp"
+             Title="Register">
     <ContentPage.BindingContext>
         <viewModels:RegisterViewModel/>
     </ContentPage.BindingContext>
     
-    <StackLayout Orientation="Vertical">
+    <StackLayout Orientation="Vertical" 
+                 VerticalOptions="Center"
+                 Padding="16,40,16,40" 
+                 Spacing="20"
+                  >
         <Entry Text="{Binding Name}"
-               Placeholder="name"/>
+               Placeholder="Name"/>
         <Entry Text="{Binding Email}"
-               Placeholder="email"/>
+               Placeholder="Email"/>
         <Entry Text="{Binding Password}"
-               Placeholder="password"/>
+               Placeholder="Password"/>
         <Entry Text="{Binding ConfirmPassword}"
-               Placeholder="confirm password"/>
+               Placeholder="Confirm Password"/>
         <Button Command="{Binding RegisterCommand}"
-                Text="Register"/>
+                Text="Register"
+                Margin="0,10,0,0"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White"
+                />
         <Label Text="{Binding Message}"/>
-        <Button Text="Go to login page"
-                Clicked="Button_OnClicked"/>
+        <Button Margin="0,10,0,0" Text="Go to login page"
+                Clicked="Button_OnClicked"
+                />
     </StackLayout>
 </ContentPage>
