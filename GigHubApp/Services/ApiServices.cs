@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using GigHubApp.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace GigHubApp.Services
 {
@@ -40,7 +41,7 @@ namespace GigHubApp.Services
             return response.IsSuccessStatusCode;
         }
 
-        public async Task LoginAsync(string userName, string password)
+        public async Task<string> LoginAsync(string userName, string password)
         {
             var keyVakues = new List<KeyValuePair<string, string>> 
             { 
@@ -56,7 +57,25 @@ namespace GigHubApp.Services
 
             var client = new HttpClient();
             var response = await client.SendAsync(request);
-            var content = await response.Content.ReadAsStringAsync();
+            var jwt = await response.Content.ReadAsStringAsync();
+
+            JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(jwt);
+
+            var accessToken = jwtDynamic.Value<string>("access_token");
+
+            return accessToken;
+        }
+
+        public async Task<List<Gig>> GetGigsAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var json = await client.GetStringAsync("http://gighub.azurewebsites.net/api/gigs");
+
+            var gigs = JsonConvert.DeserializeObject<List<Gig>>(json);
+
+            return gigs;
+
         }
 
     }

@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using GigHubApp.Models;
 using GigHubApp.Services;
+using System.Threading.Tasks;
 
 namespace GigHubApp.ViewModels
 {
@@ -39,6 +40,27 @@ namespace GigHubApp.ViewModels
             onChanged?.Invoke();
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        public async Task PushAsync<TViewModel>(params object[] args) where TViewModel : BaseViewModel
+        {
+            var viewModelType = typeof(TViewModel);
+
+            var viewModelTypeName = viewModelType.Name;
+            var viewModelWordLength = "ViewModel".Length;
+            var viewTypeName = $"GigHubApp.Views.{viewModelTypeName.Substring(0, viewModelTypeName.Length - viewModelWordLength)}Page";
+            var viewType = Type.GetType(viewTypeName);
+
+            
+            var page = Activator.CreateInstance(viewType) as Page;
+
+            var viewModel = Activator.CreateInstance(viewModelType, args);
+            if (page != null)
+            {
+                page.BindingContext = viewModel;
+            }
+
+            await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(page);
         }
 
         #region INotifyPropertyChanged
