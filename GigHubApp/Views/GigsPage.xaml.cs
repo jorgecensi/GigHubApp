@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿
+using GigHubApp.ViewModels;
+using Xamarin.Forms.Xaml;
 
 namespace GigHubApp.Views
 {
-    public partial class GigsPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class GigsPage : BasePage
     {
         public GigsPage()
         {
             InitializeComponent();
+            BindingContext = new GigsViewModel();
         }
     }
 }

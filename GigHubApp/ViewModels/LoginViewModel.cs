@@ -18,7 +18,7 @@ namespace GigHubApp.ViewModels
                 {
                     var accessToken = await _apiServices.LoginAsync(Username, Password);
                     Preferences.Set("accessToken", accessToken);
-                    await PushAsync<ItemsViewModel>();
+                    await PushAsync<GigsViewModel>();
                 });
             }
         }
