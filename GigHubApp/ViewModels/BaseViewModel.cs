@@ -63,6 +63,11 @@ namespace GigHubApp.ViewModels
             await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(page);
         }
 
+        public virtual Task LoadAsync()
+        {
+            return Task.FromResult(0);
+        }
+
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

@@ -25,6 +25,7 @@ namespace GigHubApp.ViewModels
 
         public LoginViewModel()
         {
+            Title = "Login";
             Username = Preferences.Get("username", "");
             Password = Preferences.Get("password", "");
         }

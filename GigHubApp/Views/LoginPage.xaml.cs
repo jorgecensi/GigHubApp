@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
+using GigHubApp.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace GigHubApp.Views
 {
-    public partial class LoginPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : BasePage
     {
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = new LoginViewModel();
         }
     }
 }

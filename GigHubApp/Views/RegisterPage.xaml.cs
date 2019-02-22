@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using GigHubApp.ViewModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace GigHubApp.Views
 {
-    public partial class RegisterPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RegisterPage : BasePage
     {
         public RegisterPage()
         {
             InitializeComponent();
+            BindingContext = new RegisterViewModel();
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)

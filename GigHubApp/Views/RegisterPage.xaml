@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<base:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GigHubApp.Views.RegisterPage"
-             xmlns:viewModels="clr-namespace:GigHubApp.ViewModels;assembly=GigHubApp"
-             Title="Register">
-    <ContentPage.BindingContext>
-        <viewModels:RegisterViewModel/>
-    </ContentPage.BindingContext>
+             xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
+             Title="{Binding Title}">
     
     <StackLayout Orientation="Vertical" 
                  VerticalOptions="Center"
@@ -37,4 +34,4 @@
                 Clicked="Button_OnClicked"
                 />
     </StackLayout>
-</ContentPage>
+</base:BasePage>

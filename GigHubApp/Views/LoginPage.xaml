@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<base:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewModels="clr-namespace:GigHubApp.ViewModels;assembly=GigHubApp"
+             xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
              x:Class="GigHubApp.Views.LoginPage"
-             Title="Login">
-    <ContentPage.BindingContext>
-        <viewModels:LoginViewModel/>
-    </ContentPage.BindingContext>
-    
-    
+             Title="{Binding Title}">
+   
     <StackLayout Orientation="Vertical"
                  VerticalOptions="Center"
                  Padding="16,40,16,40" 
@@ -27,4 +23,4 @@
                 TextColor="White"
                 />
     </StackLayout>
-</ContentPage>
+</base:BasePage>

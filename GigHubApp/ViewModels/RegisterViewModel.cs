@@ -5,7 +5,7 @@ using Xamarin.Essentials;
 
 namespace GigHubApp.ViewModels
 {
-    public class RegisterViewModel
+    public class RegisterViewModel: BaseViewModel
     {
         ApiServices _apiServices = new ApiServices();
         public string Email { get; set; }
@@ -13,6 +13,11 @@ namespace GigHubApp.ViewModels
         public string ConfirmPassword { get; set; }
         public string Name { get; set; }
         public string Message { get; set; }
+
+        public RegisterViewModel()
+        {
+            Title = "Register";
+        }
 
         public ICommand RegisterCommand
         {
