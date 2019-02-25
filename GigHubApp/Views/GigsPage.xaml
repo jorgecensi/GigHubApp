@@ -4,6 +4,12 @@
              x:Class="GigHubApp.Views.GigsPage"
              xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
              Title="{Binding Title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <ScrollView>
             <ListView 

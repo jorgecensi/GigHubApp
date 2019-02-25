@@ -20,21 +20,25 @@ namespace GigHubApp.ViewModels
                 _gigs = value;
                 OnPropertyChanged();
             } }
-        public ICommand GetGigs
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    Gigs = await _apiServices.GetGigsAsync(Preferences.Get("accessToken", ""));
-                });
-            }
-        }
+
 
         public override async Task LoadAsync()
         {
             var accessToken = Preferences.Get("accessToken", "");
             Gigs = await _apiServices.GetGigsAsync(accessToken);
+        }
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command(async() =>
+                {
+                    Preferences.Set("accessToken", "");
+                    Preferences.Set("username", "");
+                    Preferences.Set("password", "");
+                    await PushAsync<LoginViewModel>();
+                });
+            }
         }
     }
 }
