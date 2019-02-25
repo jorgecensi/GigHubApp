@@ -1,10 +1,11 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GigHubApp.Services;
 using Xamarin.Forms;
+using Xamarin.Essentials;
+
 namespace GigHubApp.ViewModels
 {
-    public class RegisterViewModel
+    public class RegisterViewModel: BaseViewModel
     {
         ApiServices _apiServices = new ApiServices();
         public string Email { get; set; }
@@ -12,6 +13,11 @@ namespace GigHubApp.ViewModels
         public string ConfirmPassword { get; set; }
         public string Name { get; set; }
         public string Message { get; set; }
+
+        public RegisterViewModel()
+        {
+            Title = "Register";
+        }
 
         public ICommand RegisterCommand
         {
@@ -21,6 +27,8 @@ namespace GigHubApp.ViewModels
                 {
                     var isSuccess = await _apiServices.RegisterAsync(Name, Email, Password, ConfirmPassword);
 
+                    Preferences.Set("username", Email);
+                    Preferences.Set("password", Password);
                     if (isSuccess)
                         Message = "Registered successfully";
                     else
