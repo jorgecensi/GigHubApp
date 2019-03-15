@@ -1,7 +1,9 @@
 ﻿using GigHubApp.Models;
+using GigHubApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +19,7 @@ namespace GigHubApp.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Gigs, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -29,9 +31,18 @@ namespace GigHubApp.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
+                    case (int)MenuItemType.Gigs:
+                        MenuPages.Add(id, new NavigationPage(new GigsPage()));
+                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Logout:
+                        Preferences.Set("accessToken", "");
+                        Preferences.Set("username", "");
+                        Preferences.Set("password", "");
+                        Application.Current.MainPage = new LoginPage();
+                        return;
                 }
             }
 

@@ -22,7 +22,7 @@ namespace GigHubApp
         {
             if (!string.IsNullOrEmpty(Preferences.Get("accessToken", "") ))
             {
-                MainPage = new NavigationPage(new GigsPage());
+                MainPage = new MainPage();
             }
             else if (!string.IsNullOrEmpty(Preferences.Get("username", ""))
                     && !string.IsNullOrEmpty(Preferences.Get("password", "")))

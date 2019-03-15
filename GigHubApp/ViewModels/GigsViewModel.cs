@@ -34,22 +34,6 @@ namespace GigHubApp.ViewModels
             Gigs = await _apiServices.GetGigsAsync(accessToken);
             IsBusy = false;
         }
-        public ICommand LogoutCommand
-        {
-            get
-            {
-                return new Command(async() =>
-                {
-                    if (IsBusy)
-                        return;
-                    IsBusy = true;
-                    Preferences.Set("accessToken", "");
-                    Preferences.Set("username", "");
-                    Preferences.Set("password", "");
-                    await PushAsync<LoginViewModel>();
-                    IsBusy = false;
-                });
-            }
-        }
+
     }
 }

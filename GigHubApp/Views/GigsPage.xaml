@@ -6,8 +6,8 @@
              Title="{Binding Title}">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Logout"
-                     Command="{Binding LogoutCommand}"/>
+        <ToolbarItem Text="Add"
+                     />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

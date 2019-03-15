@@ -21,7 +21,7 @@ namespace GigHubApp.ViewModels
                     IsBusy = true;
                     var accessToken = await _apiServices.LoginAsync(Username, Password);
                     Preferences.Set("accessToken", accessToken);
-                    await PushAsync<GigsViewModel>();
+                    await PushAsync<MainViewModel>();
                     IsBusy = false;
                 });
             }

@@ -7,7 +7,9 @@ namespace GigHubApp.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        Gigs,
+        About,
+        Logout
     }
     public class HomeMenuItem
     {
