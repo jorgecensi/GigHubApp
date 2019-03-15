@@ -1,12 +1,19 @@
 ﻿using GigHubApp.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace GigHubApp
 {
+
     public abstract class BasePage : ContentPage
     {
         private BaseViewModel ViewModel => BindingContext as BaseViewModel;
+
+        public BasePage()
+        {
+
+        }
 
         protected override async void OnAppearing()
         {

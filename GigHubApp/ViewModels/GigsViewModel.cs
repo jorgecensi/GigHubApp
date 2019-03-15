@@ -21,11 +21,18 @@ namespace GigHubApp.ViewModels
                 OnPropertyChanged();
             } }
 
-
+        public GigsViewModel()
+        {
+            Title = "Gigs";
+        }
         public override async Task LoadAsync()
         {
+            if (IsBusy)
+                return;
+            IsBusy = true;
             var accessToken = Preferences.Get("accessToken", "");
             Gigs = await _apiServices.GetGigsAsync(accessToken);
+            IsBusy = false;
         }
         public ICommand LogoutCommand
         {
@@ -33,10 +40,14 @@ namespace GigHubApp.ViewModels
             {
                 return new Command(async() =>
                 {
+                    if (IsBusy)
+                        return;
+                    IsBusy = true;
                     Preferences.Set("accessToken", "");
                     Preferences.Set("username", "");
                     Preferences.Set("password", "");
                     await PushAsync<LoginViewModel>();
+                    IsBusy = false;
                 });
             }
         }

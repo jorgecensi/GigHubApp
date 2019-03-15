@@ -32,7 +32,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </ScrollView>
     </ContentPage.Content>
 </base:BasePage>
