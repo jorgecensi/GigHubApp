@@ -22,6 +22,9 @@
                                 <Label Text="{Binding Artist.Name}"
                                        FontSize="Large"
                                        TextColor="#FF5525"/>
+                                <Label Text="{Binding Venue}"
+                                       FontSize="Small"
+                                       TextColor="#FF5525"/>
 
                                 <Label Text="{Binding DateTime}"
                                         FontSize="Small" />
