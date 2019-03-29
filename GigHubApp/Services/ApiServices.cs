@@ -80,13 +80,22 @@ namespace GigHubApp.Services
 
         public async Task PostGigAsync(Gig gig, string accessToken)
         {
-            var client = new HttpClient()
-;
+            var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var json = JsonConvert.SerializeObject(gig);
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             var response = await client.PostAsync("http://gighub.azurewebsites.net/api/gigs", content);
+
+        }
+        public async Task PutGigAsync(Gig gig, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var json = JsonConvert.SerializeObject(gig);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = await client.PutAsync("http://gighub.azurewebsites.net/api/gigs/"+ gig.Id, content);
 
         }
 

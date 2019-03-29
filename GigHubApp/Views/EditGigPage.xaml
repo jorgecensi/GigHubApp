@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<base:BasePage xmlns="http://xamarin.com/schemas/2014/forms" 
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               x:Class="GigHubApp.Views.EditGigPage"
+               xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Gig.Venue}"
+                   Placeholder="Venue"
+                   Visual="Material"/>
+            <Label Text="Date:"/>
+            <DatePicker
+                    MinimumDate="{Binding Gig.DateTime}"
+                   Date="{Binding Gig.DateTime}"
+                   Visual="Material"/>
+            <Label Text="Time:"/>
+            <TimePicker Time="{Binding Gig.DateTime}"
+                   Visual="Material"/>
+            <Label Text="Genre:"/>
+            <Picker Title="Select a Genre"
+                    ItemsSource="{Binding Genres}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedIndex="{Binding SelectedGenreIndex}"
+                   Visual="Material"/> 
+            <Button Command="{Binding EditCommand}"
+                    Text="Save Gig"
+                    Margin="0,10,0,0"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    Visual="Material"/>
+            <ActivityIndicator  IsRunning="{Binding IsBusy}" Visual="Material"/>
+        
+        </StackLayout>
+    </ContentPage.Content>
+</base:BasePage>

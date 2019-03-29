@@ -14,7 +14,8 @@
         <ScrollView>
             <ListView 
                 HasUnevenRows="True"
-                ItemsSource="{Binding Gigs}">
+                ItemsSource="{Binding Gigs}"
+                ItemTapped="Handle_ItemTappedAsync">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
