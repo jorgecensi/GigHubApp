@@ -35,5 +35,16 @@ namespace GigHubApp.ViewModels
             IsBusy = false;
         }
 
+        public ICommand AddCommand
+        {
+            get
+            {
+                return new Command(async () => 
+                {
+                    await PushAsync<AddGigViewModel>();
+                
+                });
+            }
+        }
     }
 }

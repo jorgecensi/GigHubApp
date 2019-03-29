@@ -16,9 +16,9 @@ namespace GigHubApp.Services
         }
 
         public async Task<bool> RegisterAsync(
-            string name, 
-            string email, 
-            string password, 
+            string name,
+            string email,
+            string password,
             string confirmPassword)
         {
             var client = new HttpClient();
@@ -43,8 +43,8 @@ namespace GigHubApp.Services
 
         public async Task<string> LoginAsync(string userName, string password)
         {
-            var keyVakues = new List<KeyValuePair<string, string>> 
-            { 
+            var keyVakues = new List<KeyValuePair<string, string>>
+            {
                 new KeyValuePair<string, string>("username", userName),
                 new KeyValuePair<string, string>("password", password),
                 new KeyValuePair<string, string>("grant_type","password")
@@ -75,6 +75,18 @@ namespace GigHubApp.Services
             var gigs = JsonConvert.DeserializeObject<List<Gig>>(json);
 
             return gigs;
+
+        }
+
+        public async Task PostGigAsync(Gig gig, string accessToken)
+        {
+            var client = new HttpClient()
+;
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var json = JsonConvert.SerializeObject(gig);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = await client.PostAsync("http://gighub.azurewebsites.net/api/gigs", content);
 
         }
 
