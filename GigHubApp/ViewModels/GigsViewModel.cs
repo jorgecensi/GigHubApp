@@ -21,24 +21,37 @@ namespace GigHubApp.ViewModels
                 OnPropertyChanged();
             } }
 
-
+        public GigsViewModel()
+        {
+            Title = "Gigs";
+        }
         public override async Task LoadAsync()
         {
+            if (IsBusy)
+                return;
+            IsBusy = true;
             var accessToken = Preferences.Get("accessToken", "");
             Gigs = await _apiServices.GetGigsAsync(accessToken);
+            IsBusy = false;
         }
-        public ICommand LogoutCommand
+
+        public ICommand AddCommand
         {
             get
             {
-                return new Command(async() =>
+                return new Command(async () => 
                 {
-                    Preferences.Set("accessToken", "");
-                    Preferences.Set("username", "");
-                    Preferences.Set("password", "");
-                    await PushAsync<LoginViewModel>();
+                    await PushAsync<AddGigViewModel>();
+                
                 });
             }
+        }
+        public async void ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Gig tappedGig = e.Item as Gig;
+            if (tappedGig == null)
+                return;
+            await PushAsync<EditGigViewModel>(tappedGig);
         }
     }
 }

@@ -1,0 +1,110 @@
+﻿{
+  "Views\\GigsPage.xaml": [
+    {
+      "id": 2,
+      "Artist": {
+        "Name": "Jorge"
+      },
+      "DateTime": "2019-10-03T22:00:00",
+      "Venue": "2",
+      "HeroImage": "combi.jpg",
+      "Image": "user.png",
+      "ShadowOverlay": "ShadowOverlay.png",
+      "Genre": {
+        "id": 1,
+        "Name": "Techno"
+      },
+      "genreId": 1
+    },
+    {
+      "id": 7,
+      "Artist": {
+        "Name": "Test"
+      },
+      "DateTime": "2020-01-01T20:00:00",
+      "Venue": "aoi",
+      "HeroImage": "combi.jpg",
+      "Image": "user.png",
+      "ShadowOverlay": "ShadowOverlay.png",
+      "Genre": {
+        "id": 1,
+        "Name": "Techno"
+      },
+      "genreId": 1
+    },
+    {
+      "id": 10,
+      "isCanceled": false,
+      "Artist": {
+        "claims": [],
+        "logins": [],
+        "roles": [],
+        "Name": "raquel",
+        "followers": [],
+        "followees": [],
+        "userNotifications": [],
+        "email": "raquelM12@teste.com",
+        "emailConfirmed": false,
+        "passwordHash": "AMzUeiZ83aw8399+71BCDouMuyfWarPVHUci1DGNiDtKVcrtEar3a2gbIiTQsxkDEg==",
+        "securityStamp": "9e2cbce2-ac41-4e3a-875a-f888419765b0",
+        "phoneNumber": null,
+        "phoneNumberConfirmed": false,
+        "twoFactorEnabled": false,
+        "lockoutEndDateUtc": null,
+        "lockoutEnabled": true,
+        "accessFailedCount": 0,
+        "id": "6b55e225-6c09-4e20-a001-0d2c453e5921",
+        "userName": "raquelM12@teste.com"
+      },
+      "artistId": "6b55e225-6c09-4e20-a001-0d2c453e5921",
+      "DateTime": "2019-04-04T23:00:00",
+      "Venue": "The End Bar",
+      "HeroImage": "combi.jpg",
+      "Image": "user.png",
+      "ShadowOverlay": "ShadowOverlay.png",
+      "Genre": {
+        "id": 3,
+        "Name": "Rock"
+      },
+      "genreId": 3,
+      "attendances": []
+    },
+    {
+      "id": 13,
+      "isCanceled": false,
+      "Artist": {
+        "claims": [],
+        "logins": [],
+        "roles": [],
+        "Name": "raquel",
+        "followers": [],
+        "followees": [],
+        "userNotifications": [],
+        "email": "raquelM12@teste.com",
+        "emailConfirmed": false,
+        "passwordHash": "AMzUeiZ83aw8399+71BCDouMuyfWarPVHUci1DGNiDtKVcrtEar3a2gbIiTQsxkDEg==",
+        "securityStamp": "9e2cbce2-ac41-4e3a-875a-f888419765b0",
+        "phoneNumber": null,
+        "phoneNumberConfirmed": false,
+        "twoFactorEnabled": false,
+        "lockoutEndDateUtc": null,
+        "lockoutEnabled": true,
+        "accessFailedCount": 0,
+        "id": "6b55e225-6c09-4e20-a001-0d2c453e5921",
+        "userName": "raquelM12@teste.com"
+      },
+      "artistId": "6b55e225-6c09-4e20-a001-0d2c453e5921",
+      "DateTime": "2019-04-29T00:00:00",
+      "Venue": "Adds",
+      "HeroImage": "combi.jpg",
+      "Image": "user.png",
+      "ShadowOverlay": "ShadowOverlay.png",
+      "Genre": {
+        "id": 2,
+        "Name": "Deep House"
+      },
+      "genreId": 2,
+      "attendances": []
+    }
+  ]
+}

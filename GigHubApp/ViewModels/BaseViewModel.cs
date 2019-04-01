@@ -59,8 +59,8 @@ namespace GigHubApp.ViewModels
             {
                 page.BindingContext = viewModel;
             }
-
-            await Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(page);
+            var masterDetailPage = Xamarin.Forms.Application.Current.MainPage as MasterDetailPage;
+            await masterDetailPage.Detail.Navigation.PushAsync(page);
         }
 
         public virtual Task LoadAsync()

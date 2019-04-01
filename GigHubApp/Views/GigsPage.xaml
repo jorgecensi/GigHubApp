@@ -3,36 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GigHubApp.Views.GigsPage"
              xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              Title="{Binding Title}">
     
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Logout"
-                     Command="{Binding LogoutCommand}"/>
+        <ToolbarItem Text="Add"
+                     Command="{Binding AddCommand}"/>
     </ContentPage.ToolbarItems>
     
-    <ContentPage.Content>
-        <ScrollView>
-            <ListView 
-                HasUnevenRows="True"
-                ItemsSource="{Binding Gigs}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="20, 30" Orientation="Vertical">
-                                <Label Text="{Binding Artist.Name}"
-                                       FontSize="Large"
-                                       TextColor="#FF5525"/>
+    <Grid>
+        <ListView 
+            HasUnevenRows="True"
+            ItemsSource="{Binding Gigs}"
+            
+            RowHeight="200"
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowSpacing="5" ColumnSpacing="0" Margin="10,5" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="AUTO"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Image Source="gig.png" Aspect="AspectFill" Grid.RowSpan="2" />
+                            <Image Source="ShadowOverlay.png" Grid.RowSpan="2"  Aspect="Fill" VerticalOptions="End" HorizontalOptions="Fill" />
+
+                            
+                            <Grid Margin="10" RowSpacing="10" ColumnSpacing="10" Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="AUTO"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="AUTO"/>
+                            </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Artist.Name}" FontSize="Large" TextColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" LineBreakMode="NoWrap"/>
+                                <controls:CircleImage Source="user.png" Aspect="AspectFill" Grid.Row="0" Grid.Column="0" WidthRequest="30" HeightRequest="30" />
+                                <Label Text="{Binding Venue}"
+                                       FontSize="Small"
+                                       TextColor="White"
+                                       Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
 
                                 <Label Text="{Binding DateTime}"
-                                        FontSize="Small" />
+                                         
+                                       TextColor="White"
+                                       Grid.Row="1" Grid.Column="2" VerticalOptions="Center"/>
                                 <Label Text="{Binding Genre.Name}"
-                                        FontSize="Small" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-        </ScrollView>
-    </ContentPage.Content>
+                                         
+                                       TextColor="White"
+                                       Grid.Row="1" Grid.Column="3" VerticalOptions="Center"/>
+                            </Grid>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </base:BasePage>
