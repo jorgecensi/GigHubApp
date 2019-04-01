@@ -46,7 +46,7 @@ namespace GigHubApp.ViewModels
                 });
             }
         }
-        public async void ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        public async void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Gig tappedGig = e.Item as Gig;
             if (tappedGig == null)

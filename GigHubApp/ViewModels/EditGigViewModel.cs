@@ -15,6 +15,7 @@ namespace GigHubApp.ViewModels
         private List<Genre> genres = new List<Genre>();
         public EditGigViewModel(Gig gig)
         {
+            Title = "Edit Gig";
             Gig = gig;
             Genres.Add(new Genre { Id = 1, Name = "genre1" });
             Genres.Add(new Genre { Id = 2, Name = "genre2" });

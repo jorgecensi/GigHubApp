@@ -5,7 +5,9 @@
                xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
              Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Padding="16,40,16,40">
             <Entry Text="{Binding Gig.Venue}"
                    Placeholder="Venue"
                    Visual="Material"/>
