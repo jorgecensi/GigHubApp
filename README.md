@@ -10,7 +10,7 @@
 
 The GigHub App is a sample open source application powered by C# and Xamarin, this sample provides us how to build mobile and web applications with a clean architecture and write testable and clean code.
 
-## Using technologies
+## Used technologies
 
 * Back-end
   * [ASP.NET Web API](https://github.com/jorgecensi/GigHub)
