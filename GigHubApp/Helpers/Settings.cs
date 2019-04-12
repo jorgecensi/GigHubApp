@@ -3,11 +3,9 @@ using Xamarin.Essentials;
 
 namespace GigHubApp.Helpers
 {
-    public class Settings
+    public static class Settings
     {
-        public Settings()
-        {
-        }
+
         public static string Username
         {
             get
@@ -48,6 +46,18 @@ namespace GigHubApp.Helpers
             AccessToken = "";
             Username = "";
             Password = "";
+        }
+
+        public static DateTime AccessTokenExpirationDate
+        {
+            get
+            {
+                return Preferences.Get("AccessTokenExpirationDate", DateTime.UtcNow);
+            }
+            set
+            {
+                Preferences.Set("AccessTokenExpirationDate", value);
+            }
         }
     }
 }
