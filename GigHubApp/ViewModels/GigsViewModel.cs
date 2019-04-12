@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GigHubApp.Helpers;
 using GigHubApp.Models;
 using GigHubApp.Services;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GigHubApp.ViewModels
@@ -30,7 +29,7 @@ namespace GigHubApp.ViewModels
             if (IsBusy)
                 return;
             IsBusy = true;
-            var accessToken = Preferences.Get("accessToken", "");
+            var accessToken = Settings.AccessToken;
             Gigs = await _apiServices.GetGigsAsync(accessToken);
             IsBusy = false;
         }

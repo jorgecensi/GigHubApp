@@ -37,4 +37,7 @@
     <Compile Remove="Views\LoginPage.cs" />
     <Compile Remove="ViewModels\AddNewGig.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
 </Project>

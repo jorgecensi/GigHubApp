@@ -1,4 +1,5 @@
-﻿using GigHubApp.Models;
+﻿using GigHubApp.Helpers;
+using GigHubApp.Models;
 using GigHubApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -38,9 +39,7 @@ namespace GigHubApp.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                     case (int)MenuItemType.Logout:
-                        Preferences.Set("accessToken", "");
-                        Preferences.Set("username", "");
-                        Preferences.Set("password", "");
+                        Settings.Clear();
                         Application.Current.MainPage = new LoginPage();
                         return;
                 }

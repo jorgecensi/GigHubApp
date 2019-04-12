@@ -2,6 +2,7 @@
 using GigHubApp.Services;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using GigHubApp.Helpers;
 
 namespace GigHubApp.ViewModels
 {
@@ -27,8 +28,8 @@ namespace GigHubApp.ViewModels
                 {
                     var isSuccess = await _apiServices.RegisterAsync(Name, Email, Password, ConfirmPassword);
 
-                    Preferences.Set("username", Email);
-                    Preferences.Set("password", Password);
+                    Settings.Username = Email;
+                    Settings.Password = Password;
                     if (isSuccess)
                         Message = "Registered successfully";
                     else

@@ -14,9 +14,9 @@ namespace GigHubApp.Views
             BindingContext = new RegisterViewModel();
         }
 
-        private async void Button_OnClicked(object sender, EventArgs e)
+        private void Button_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            Application.Current.MainPage = new LoginPage();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using GigHubApp.Services;
 using Xamarin.Forms;
-using Xamarin.Essentials;
+using GigHubApp.Helpers;
 
 namespace GigHubApp.ViewModels
 {
@@ -20,7 +20,7 @@ namespace GigHubApp.ViewModels
                         return;
                     IsBusy = true;
                     var accessToken = await _apiServices.LoginAsync(Username, Password);
-                    Preferences.Set("accessToken", accessToken);
+                    Settings.AccessToken = accessToken;
                     await PushAsync<GigsViewModel>();
                     IsBusy = false;
                 });
@@ -30,8 +30,8 @@ namespace GigHubApp.ViewModels
         public LoginViewModel()
         {
             Title = "Login";
-            Username = Preferences.Get("username", "");
-            Password = Preferences.Get("password", "");
+            Username = Settings.Username;
+            Password = Settings.Username;
         }
     }
 }

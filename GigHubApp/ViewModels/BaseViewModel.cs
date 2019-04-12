@@ -42,6 +42,7 @@ namespace GigHubApp.ViewModels
             return true;
         }
 
+
         public async Task PushAsync<TViewModel>(params object[] args) where TViewModel : BaseViewModel
         {
             var viewModelType = typeof(TViewModel);

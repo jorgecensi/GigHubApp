@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GigHubApp.Views.GigsPage"
              xmlns:base="clr-namespace:GigHubApp;assembly=GigHubApp"
+             xmlns:models="clr-namespace:GigHubApp.Models;assembly=GigHubApp"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              Title="{Binding Title}">
     
     <ContentPage.ToolbarItems>
@@ -15,47 +19,82 @@
         <ListView 
             HasUnevenRows="True"
             ItemsSource="{Binding Gigs}"
-            
             RowHeight="200"
             SeparatorVisibility="None">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type models:Gig}">
+                    <models:Gig
+                        ArtistName="Nooe"
+                        Venue = "Venud"
+                        DateTime = "05/10/2019 20:00"
+                        />
+                    <models:Gig
+                        
+                        Venue = "Ven2"
+                        DateTime = "05/10/2019 22:00"
+                        />
+                    
+                </x:Array>
+            </d:ListView.ItemsSource>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid RowSpacing="5" ColumnSpacing="0" Margin="10,5" >
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="90"/>
                                 <RowDefinition Height="AUTO"/>
                             </Grid.RowDefinitions>
                             
-                            <Image Source="gig.png" Aspect="AspectFill" Grid.RowSpan="2" />
-                            <Image Source="ShadowOverlay.png" Grid.RowSpan="2"  Aspect="Fill" VerticalOptions="End" HorizontalOptions="Fill" />
-
-                            
-                            <Grid Margin="10" RowSpacing="10" ColumnSpacing="10" Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="AUTO"/>
-                                <RowDefinition Height="30"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="25"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="AUTO"/>
-                            </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Artist.Name}" FontSize="Large" TextColor="White" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" LineBreakMode="NoWrap"/>
-                                <controls:CircleImage Source="user.png" Aspect="AspectFill" Grid.Row="0" Grid.Column="0" WidthRequest="30" HeightRequest="30" />
+                            <Image Source="gig.png" 
+                                   Aspect="AspectFill" 
+                                   Grid.RowSpan="2" />
+                            <Image Source="ShadowOverlay.png" 
+                                   Grid.RowSpan="2"  
+                                   Aspect="Fill" 
+                                   VerticalOptions="End" 
+                                   HorizontalOptions="Fill" />
+                            <Grid Margin="10" 
+                                  RowSpacing="10" 
+                                  ColumnSpacing="10" 
+                                  Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="AUTO"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="AUTO"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Artist.Name}" 
+                                       FontSize="Large" 
+                                       TextColor="White" 
+                                       Grid.Row="0" 
+                                       Grid.Column="1" 
+                                       Grid.ColumnSpan="3" 
+                                       LineBreakMode="NoWrap"/>
+                                <controls:CircleImage Source="user.png" 
+                                                      Aspect="AspectFill" 
+                                                      Grid.Row="0" 
+                                                      Grid.Column="0" 
+                                                      WidthRequest="30" 
+                                                      HeightRequest="30" />
                                 <Label Text="{Binding Venue}"
                                        FontSize="Small"
                                        TextColor="White"
-                                       Grid.Row="1" Grid.Column="1" VerticalOptions="Center"/>
-
+                                       Grid.Row="1" 
+                                       Grid.Column="1" 
+                                       VerticalOptions="Center"/>
                                 <Label Text="{Binding DateTime}"
-                                         
                                        TextColor="White"
-                                       Grid.Row="1" Grid.Column="2" VerticalOptions="Center"/>
+                                       Grid.Row="1" 
+                                       Grid.Column="2" 
+                                       VerticalOptions="Center"/>
                                 <Label Text="{Binding Genre.Name}"
-                                         
                                        TextColor="White"
-                                       Grid.Row="1" Grid.Column="3" VerticalOptions="Center"/>
+                                       Grid.Row="1" 
+                                       Grid.Column="3" 
+                                       VerticalOptions="Center"/>
                             </Grid>
                         </Grid>
                     </ViewCell>

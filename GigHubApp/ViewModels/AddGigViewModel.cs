@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using GigHubApp.Helpers;
 using GigHubApp.Models;
 using GigHubApp.Services;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace GigHubApp.ViewModels
@@ -68,7 +68,7 @@ namespace GigHubApp.ViewModels
                         DateTime = DateTime,
                         GenreId = Genre.Id
                     };
-                    var accessToken = Preferences.Get("accessToken", "");
+                    var accessToken = Settings.AccessToken;
                     await _apiServices.PostGigAsync(gig, accessToken);
                     await PushAsync<MainViewModel>();
                     IsBusy = false;

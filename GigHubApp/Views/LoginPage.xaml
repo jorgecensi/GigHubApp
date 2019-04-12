@@ -17,6 +17,7 @@
                IsPassword="true"
                Visual="Material"/>
         <Button Command="{Binding LoginCommand}"
+                Clicked="NavigateToMainPage"
                 Margin="0,10,0,0"
                 Text="Login"
                 BackgroundColor="{StaticResource Primary}"

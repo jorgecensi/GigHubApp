@@ -1,8 +1,7 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using GigHubApp.Views;
-using Xamarin.Essentials;
+using GigHubApp.Helpers;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace GigHubApp
@@ -20,12 +19,12 @@ namespace GigHubApp
 
         private void SetMainPage()
         {
-            if (!string.IsNullOrEmpty(Preferences.Get("accessToken", "") ))
+            if (!string.IsNullOrEmpty(Settings.AccessToken))
             {
                 MainPage = new MainPage();
             }
-            else if (!string.IsNullOrEmpty(Preferences.Get("username", ""))
-                    && !string.IsNullOrEmpty(Preferences.Get("password", "")))
+            else if (!string.IsNullOrEmpty(Settings.Username)
+                    && !string.IsNullOrEmpty(Settings.Password))
             {
                 MainPage = new LoginPage();
             }
